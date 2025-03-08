@@ -1,0 +1,38 @@
+.food-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+
+.header {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  width: 100%; 
+}
+
+.header img {
+  height: auto;
+  margin-right: 10px; 
+}
+
+.header h1 {
+  font-size: 1.
+}
+.App {
+  text-align: center;
+  background-color: #d499d3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  color: whitesmoke;
+}

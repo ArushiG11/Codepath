@@ -1,0 +1,102 @@
+
+.flashcard-container {
+    perspective: 1000px; 
+    width: 400px;
+    height: 250px;
+    cursor: pointer;
+  }
+  
+  .flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  .flashcard.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .flashcard.flipped:hover {
+    transform: rotateY(180deg) scale(1.02);
+  }
+
+  .flashcard:not(.flipped):hover {
+    transform: scale(1.02);
+  }
+
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    backface-visibility: hidden;
+  }
+  
+  
+  .front {
+    transform: rotateY(0deg);
+  }
+  
+  
+  .back {
+    transform: rotateY(180deg); 
+  }
+  
+
+  .difficulty-easy .front {
+    background: rgba(46, 204, 113, 0.9); 
+    color: black;
+  }
+  
+  .difficulty-easy .back {
+    background: rgba(39, 174, 96, 0.9);
+    color: white;
+  }
+  
+ 
+  .difficulty-medium .front {
+    background: rgba(229, 192, 8, 0.9); 
+    color: black;
+  }
+  
+  .difficulty-medium .back {
+    background: rgba(229, 192, 8, 0.9); 
+    color: white;
+  }
+  
+
+  .difficulty-hard .front {
+    background: rgba(231, 76, 60, 0.9); 
+    color: black;
+  }
+  
+  .difficulty-hard .back {
+    background: rgba(192, 57, 43, 0.9); 
+    color: white;
+  }
+
+   /* .difficulty-easy {
+    background: rgba(7, 243, 255, 0.9); 
+    color: white;
+    transform: rotateY(0deg);
+  }
+
+  .difficulty-medium {
+    background: rgba(229, 192, 8, 0.9); 
+    color: white;
+    transform: rotateY(0deg);
+  }
+
+  .difficulty-hard {
+    background: rgba(255, 7, 7, 0.9);
+    color: white;
+    transform: rotateY(0deg);
+  } */
