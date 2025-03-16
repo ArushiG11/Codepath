@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Flashcard from "./components/Flashcard";
 import "./App.css"; 
+import stringSimilarity from "string-similarity";
 
 // Sample flashcards data
 const flashcards = [
@@ -36,12 +37,36 @@ const flashcards = [
 ];
 
 const App = () => {
+  // const [feedback, setFeedback] = useState(null);
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * flashcards.length));
+  const goToNextCard = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
+  };
 
+  const checkAnswer = (userInput) => {
+    const correctAnswer = flashcards[currentIndex].answer;
+    const similarityScore = stringSimilarity.compareTwoStrings(userInput.trim().toLowerCase(), correctAnswer.toLowerCase());
+
+    if (similarityScore >= 0.7) {
+      setCurrentStreak((prev) => prev + 1);
+      setLongestStreak((prev) => Math.max(prev, currentStreak + 1));
+      return "green";
+    } else {
+      setCurrentStreak(0);
+      return "red";
+    }
+  };
+
+  const goToPrevCard = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length);
+  };
   const showNextCard = () => {
     const randomIndex = Math.floor(Math.random() * flashcards.length);
     setCurrentIndex(randomIndex);
   };
+
   const currentCard = flashcards[currentIndex]
   return (
     <div className="app-container">
@@ -52,8 +77,14 @@ const App = () => {
       <Flashcard key={currentIndex} 
         question={currentCard.question}
         answer={currentCard.answer}
-        difficulty={currentCard.difficulty} />
-      <button className="next-btn" onClick={showNextCard}>Next</button>
+        difficulty={currentCard.difficulty} 
+        onNext={goToNextCard}
+        onBack={goToPrevCard}
+        onShuffle = {showNextCard}
+        checkAnswer={checkAnswer}
+        currentStreak={currentStreak}
+        longestStreak={longestStreak}/>
+      
     </div>
   );
 };

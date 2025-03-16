@@ -1,0 +1,203 @@
+/* General Layout */
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  width: 450px;
+  height: auto;
+  /* padding: 20px; */
+  margin: auto;
+}
+
+/* Flashcard Flipping */
+.flashcard {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+/* Flip Effect */
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Hover Effect */
+.flashcard:not(.flipped):hover {
+  transform: scale(1.02);
+}
+
+.flashcard.flipped:hover {
+  transform: rotateY(180deg) scale(1.02);
+}
+
+/* Front & Back Sides */
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+}
+
+/* Colors */
+.front {
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+/* Difficulty Levels */
+.difficulty-easy .front {
+  background: rgba(46, 204, 113, 0.9);
+  color: black;
+}
+
+.difficulty-easy .back {
+  background: rgba(39, 174, 96, 0.9);
+  color: white;
+}
+
+.difficulty-medium .front {
+  background: rgba(229, 192, 8, 0.9);
+  color: black;
+}
+
+.difficulty-medium .back {
+  background: rgba(229, 192, 8, 0.9);
+  color: white;
+}
+
+.difficulty-hard .front {
+  background: rgba(231, 76, 60, 0.9);
+  color: black;
+}
+
+.difficulty-hard .back {
+  background: rgba(192, 57, 43, 0.9);
+  color: white;
+}
+
+/* Input & Buttons Container */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Answer Input */
+.answer-input {
+  padding: 10px;
+  width: 90%;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
+}
+
+/* Feedback */
+.feedback {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Correct & Incorrect Borders */
+.incorrect {
+  border: 2px solid red;
+}
+
+.correct {
+  border: 2px solid green;
+}
+
+/* Buttons Layout */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: green;
+}
+
+.submit-btn:hover {
+  background: darkgreen;
+}
+
+/* Shuffle Button */
+.shuffle-btn {
+  background: #092436;
+}
+
+.shuffle-btn:hover {
+  background: #8078b1;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  background: #3498db;
+}
+
+.nav-btn:hover {
+  background: #2980b9;
+}
+
+
+.streak-container {
+  display : flex;
+  justify-content: center; 
+  gap: 50px;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  width: fit-content;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .flashcard-container {
+    width: 90%;
+  }
+
+  .answer-input {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}
