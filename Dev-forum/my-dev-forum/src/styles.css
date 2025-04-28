@@ -1,0 +1,243 @@
+/* ========== GLOBAL RESET & BASE ========== */
+* {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  a {
+    color: #4b0082;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ========== CONTAINER ========== */
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ========== NAVBAR ========== */
+  .navbar {
+    background-color: #4b0082;
+    color: white;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+  .navbar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  .navbar-links a {
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .navbar-links a:hover {
+    color: #ffd700;
+  }
+  
+  /* ========== HEADINGS ========== */
+  h1 {
+    margin-bottom: 20px;
+    color: #4b0082;
+  }
+  h2 {
+    margin: 0 0 8px;
+  }
+  
+  /* ========== FORMS & INPUTS ========== */
+  .thread-form,
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  .thread-form label,
+  label {
+    font-weight: bold;
+  }
+  .input,
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  .textarea,
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  
+  /* ========== BUTTONS ========== */
+  .btn,
+  button {
+    align-self: flex-start;
+    background-color: #4b0082;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .btn:hover,
+  button:hover {
+    background-color: #341166;
+  }
+  /* for delete buttons */
+  .delete-btn {
+    background-color: #dc3545;
+  }
+  .delete-btn:hover {
+    background-color: #a61d2d;
+  }
+  
+  /* ========== LISTS & CARDS ========== */
+  .thread-list,
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .thread-card,
+  .card,
+  li {
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 6px solid #4b0082;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  .thread-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4b0082;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .thread-title:hover {
+    text-decoration: underline;
+  }
+  .thread-excerpt {
+    margin: 8px 0;
+    color: #555;
+  }
+  .thread-meta,
+  small {
+    font-size: 0.875rem;
+    color: #777;
+  }
+  
+  /* ========== EMPTY & LOADING STATES ========== */
+  .empty {
+    font-style: italic;
+    color: #777;
+    margin-top: 12px;
+  }
+  .loading {
+    font-style: italic;
+    text-align: center;
+    color: #888;
+    margin: 20px 0;
+  }
+  
+  /* ========== PROFILE PAGE ========== */
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .profile-form label {
+    font-weight: bold;
+  }
+  
+
+
+  /* ========== NAVBAR ========== */
+.navbar {
+    background-color: #4b0082;          /* indigo background */
+    color: white;                       /* white text */
+    padding: 16px 24px;                 /* vertical + horizontal padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #341166;   /* subtle darker border */
+  }
+  
+  .navbar-left a {
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 12px;                          /* space between logo & title */
+  }
+  
+  .navbar-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  
+  .navbar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+  }
+  .navbar-title:hover {
+    color: #ffd700;                     /* gold on hover */
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 20px;                          /* spacing between links */
+  }
+  .navbar-links a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .navbar-links a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #ffd700;
+  }
+  
